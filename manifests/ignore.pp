@@ -13,8 +13,8 @@ define logcheck::ignore($ensure=present,
       fail "Uknown type $type for logcheck::ignore"
     }
   }
-  common::concatfilepart {"set rule $name":
-    file        => $file,
+  concat::fragment {"set rule $name":
+    target      => $file,
     content     => "$rule\n",
     ensure      => $ensure,
   }

@@ -4,9 +4,9 @@ define logcheck::logfile($ensure=present, $file) {
     group   => logcheck,
     mode    => 0640,
   }
-  common::concatfilepart {"$name":
+  concat::fragment {"$name":
     ensure  => $ensure,
-    file    => "/etc/logcheck/logcheck.logfiles",
+    target  => "/etc/logcheck/logcheck.logfiles",
     content => "$file\n",
   }
 }
