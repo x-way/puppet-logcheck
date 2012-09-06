@@ -25,6 +25,7 @@ class logcheck {
     owner   => root,
     group   => logcheck,
     mode    => '0644',
+    force   => true,
     require => Package['logcheck'],
   }
 }
